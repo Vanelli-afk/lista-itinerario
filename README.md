@@ -2,7 +2,8 @@
 
 ## Descrição
 
-Este projeto consiste em uma aplicação desenvolvida em C++ com o objetivo de [descrever brevemente o propósito do projeto, por exemplo: manipular estruturas de dados, resolver um problema específico, implementar funcionalidades X, etc.].
+Este projeto consiste em uma aplicação desenvolvida em C++ com o objetivo de organizar uma empresa de transporte
+coletivo municipal.
 
 A estrutura do projeto foi organizada de forma modular, separando arquivos de código-fonte, cabeçalhos e testes, a fim de facilitar a manutenção, legibilidade e escalabilidade.
 
