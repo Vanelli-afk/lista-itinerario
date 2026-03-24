@@ -1,0 +1,17 @@
+# Arquivos compilados
+*.exe
+*.out
+*.o
+
+# Pastas de build
+build/
+bin/
+
+# VSCode
+.vscode/
+
+# Mac / Linux lixo
+.DS_Store
+
+# Logs
+*.log
