@@ -93,7 +93,6 @@ teste.exe
 
 * Certifique-se de que o compilador GCC esteja corretamente instalado e configurado no PATH do sistema.
 * Caso utilize o Visual Studio Code, recomenda-se instalar a extensão oficial de C/C++ para melhor suporte ao desenvolvimento.
-* O projeto pode ser expandido com
 
 ---
 
