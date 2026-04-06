@@ -24,7 +24,7 @@ int main(){
         cout<<"================"<<endl;
 
         do{ 
-            cout<<"Insira a opcao (0 - 9): ";
+            cout<<"Insira a opcao (1 - 9): ";
             cin>>op;
             if(op < 0 or op > 9)
                 cout<<"Valor Invalido!";
@@ -34,47 +34,91 @@ int main(){
 
         switch(op){
             case 1:
-                cout<<"\nInsira o nome da Parada: ";
-                getline(cin, nome);
-                insereParadaInicio(lista, nome);
+                try{
+                    cout<<"\nInsira o nome da Parada: ";
+                    getline(cin, nome);
+                    insereParadaInicio(lista, nome);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 2:
-                cout<<"\nInsira o nome da Parada: ";
-                getline(cin, nome);
-                insereParadaFinal(lista, nome);
+                try{
+                    cout<<"\nInsira o nome da Parada: ";
+                    getline(cin, nome);
+                    insereParadaFinal(lista, nome);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 3:
-                cout<<"\nInsira o nome da Parada: ";
-                getline(cin, nome);
-                cout<<"\nInsira a Posicao em que deseja adicionar: "; 
-                cin>>pos;
-                insereParadaPosicao(lista, nome, pos);
+                try{
+                    cout<<"\nInsira o nome da Parada: ";
+                    getline(cin, nome);
+                    cout<<"\nInsira a Posicao em que deseja adicionar: "; 
+                    cin>>pos;
+                    insereParadaPosicao(lista, nome, pos);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 4:
-                cout<<"\nRemovendo primeira Parada...";
-                removePrimeiraParada(lista);
-                cout<<"\nParada Removida!";
+                try{
+                    cout<<"\nRemovendo primeira Parada...";
+                    removePrimeiraParada(lista);
+                    cout<<"\nParada Removida!";
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 5:
-                cout<<"\nRemovendo ultima Parada...";
-                removeUltimaParada(lista);
-                cout<<"\nParada Removida!";
+                try{
+                    cout<<"\nRemovendo ultima Parada...";
+                    removeUltimaParada(lista);
+                    cout<<"\nParada Removida!";
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 6:
-                cout<<"\nInsira a Parada que deseja buscar: ";
-                getline(cin, nome);
-                buscarParada(lista, nome);
+                try{
+                    cout<<"\nInsira a Parada que deseja buscar: ";
+                    getline(cin, nome);
+                    buscarParada(lista, nome);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 7:
-                cout<<"\nInicializando visualizacao de rota..."<<endl<<endl;
-                mostrarRota(lista);
+                try{
+                    cout<<"\nInicializando visualizacao de rota..."<<endl<<endl;
+                    mostrarRota(lista);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 8:
-                cout<<"\nInicializando visualizacao inversa de rota..."<<endl<<endl;
-                mostrarRotaInversa(lista);
+                try{
+                    cout<<"\nInicializando visualizacao inversa de rota..."<<endl<<endl;
+                    mostrarRotaInversa(lista);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
+
             case 9:
-                cout<<"\nQuantidade de Paradas: "<<contarParadas(lista);
+                try{
+                    cout<<"\nQuantidade de Paradas: "<<contarParadas(lista);
+                } catch(const exception &e){
+                    cout<<"Erro: "<< e.what() << endl;
+                }
                 break;
         }
     }while(op != 0);

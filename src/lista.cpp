@@ -1,5 +1,6 @@
 #include "lista.h"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 void criarLista(Lista &lista){
@@ -10,6 +11,8 @@ void criarLista(Lista &lista){
 
 void insereParadaInicio(Lista &lista, string nome){
     Node* novo = new Node;
+    if(novo == NULL) throw runtime_error("Erro de alocacao");
+
     novo->nome = nome;
     novo->ant = NULL;
     novo->prox = lista.inicio;
@@ -26,6 +29,8 @@ void insereParadaInicio(Lista &lista, string nome){
 
 void insereParadaFinal(Lista &lista, string nome){
     Node* novo = new Node;
+    if(novo == NULL) throw runtime_error("Erro de alocacao");
+
     novo->nome = nome;
     novo->prox = NULL;
     novo->ant = lista.fim;
@@ -44,8 +49,7 @@ void insereParadaFinal(Lista &lista, string nome){
 void insereParadaPosicao(Lista &lista, string nome, int pos){
     // validando posições especificas
     if(pos < 0 or pos > lista.cardinalidade){
-        cout<<"POSIÇÃO INVÁLIDA"<<endl;
-        return;
+        throw invalid_argument("POSICAO INVALIDA");
     }
 
     if(pos == 0){
@@ -60,6 +64,8 @@ void insereParadaPosicao(Lista &lista, string nome, int pos){
 
     // adicionando na posicao
     Node* novo = new Node;
+    if(novo == NULL) throw runtime_error("Erro de alocacao");
+
     Node* aux = lista.inicio;
     novo->nome = nome;
     
@@ -79,35 +85,39 @@ void insereParadaPosicao(Lista &lista, string nome, int pos){
 }
 
 void removePrimeiraParada(Lista &lista){
-    if(lista.inicio != NULL){
-        Node* aux = lista.inicio;
-        lista.inicio = lista.inicio->prox;
-        
-        if(lista.inicio != NULL){
-            lista.inicio->ant = NULL;
-        } else {
-            lista.fim = NULL; //evitar lixo
-        }
-
-        delete aux;
-        lista.cardinalidade--;
+    if(lista.inicio == NULL){
+        throw runtime_error("Lista vazia");
     }
+
+    Node* aux = lista.inicio;
+    lista.inicio = lista.inicio->prox;
+    
+    if(lista.inicio != NULL){
+        lista.inicio->ant = NULL;
+    } else {
+        lista.fim = NULL; //evitar lixo
+    }
+
+    delete aux;
+    lista.cardinalidade--;
 }
 
 void removeUltimaParada(Lista &lista){
-    if(lista.fim != NULL){
-        Node* aux = lista.fim;
-        lista.fim = lista.fim->ant;
-
-        if(lista.fim != NULL){
-            lista.fim->prox = NULL;
-        } else {
-            lista.inicio = NULL; // lista vazia
-        }
-
-        delete aux;
-        lista.cardinalidade--;
+    if(lista.fim == NULL){
+        throw runtime_error("Lista vazia");
     }
+
+    Node* aux = lista.fim;
+    lista.fim = lista.fim->ant;
+
+    if(lista.fim != NULL){
+        lista.fim->prox = NULL;
+    } else {
+        lista.inicio = NULL; // lista vazia
+    }
+
+    delete aux;
+    lista.cardinalidade--;
 }
 
 void buscarParada(Lista lista, string nome){
@@ -120,7 +130,8 @@ void buscarParada(Lista lista, string nome){
         }
         aux = aux->prox;    
     } 
-    cout<< "Parada Inexistente" << endl;
+
+    throw runtime_error("Parada Inexistente");
 }
 
 void mostrarRota(Lista lista){
