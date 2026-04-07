@@ -106,10 +106,11 @@ A lista duplamente encadeada é mais adequada pois permite:
 * Navegação em ambos os sentidos (ida e volta), essencial para mostrar a rota normal e inversa
 * Remoção eficiente tanto no início quanto no final da lista
 * Inserções mais flexíveis no meio da estrutura
+
 Como o sistema exige operações como mostrar rota inversa e manipular tanto início quanto fim da lista, essa estrutura se torna mais eficiente que uma lista simplesmente encadeada
 
 ### 3. Existe cenário onde outra lista seria melhor?
-Sim. Em um cenário como linhas circulares de ônibus, uma lista circular seria mais vantajosa.
+Sim. Em um cenário como linhas circulares de ônibus, uma lista circular seria mais vantajosa. 
 Visto que:
 * O último elemento se conecta ao primeiro
 * Permite percorrer a rota continuamente sem precisar reiniciar manualmente
